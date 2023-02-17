@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { filtersSlice } from './reducer/filtersSlice'
+import { listStudentsSlice } from './reducer/listStudentsSlice'
 
 export default function Control(props) {
     const [inputValue, setInputValue] = useState('')
     const dispatch = useDispatch()
     const handleToggle = () => {
         dispatch(filtersSlice.actions.toggle({ status: props.toggle, action: 'ADD' }))
+        dispatch(listStudentsSlice.actions.toggle({ status: props.toggle, action: 'ADD' }))
     }
     const handleChange = (e) => {
         setInputValue(e.target.value)

@@ -15,8 +15,17 @@ export const filtersSlice = createSlice({
     },
     reducers: {
         toggle: (state, aciton) => {
-            state.toggle.status = !state.toggle.status
-            state.toggle.action = aciton.payload.action
+            if (aciton.payload.action === 'ADD') {
+                state.toggle.status = !state.toggle.status
+                state.toggle.action = aciton.payload.action
+            } else {
+                state.toggle.status = true
+                state.toggle.action = aciton.payload.action
+            }
+            if (aciton.payload.action === 'DELETE') {
+
+                state.toggle.status = false
+            }
         },
         filtersSearch: (state, aciton) => {
             state.search = aciton.payload

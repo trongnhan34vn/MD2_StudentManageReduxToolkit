@@ -4,8 +4,6 @@ import { useSelector } from 'react-redux'
 import { remainStudents } from './redux/selector'
 
 export default function ListStudents() {
-    const sortValues = useSelector(state => state.listStudents.listStudents)
-    console.log(sortValues.sort((a,b) => (a.id > b.id) ? 1 : (a.id < b.id) ? -1 : 0)); 
     const students = useSelector(remainStudents)
     const elementStudent = students.map((student, index) => {
         return <Student key={student.id} student={student} stt={index + 1} />
